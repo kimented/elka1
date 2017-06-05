@@ -39,10 +39,10 @@ module chassis_xz_equipe(x,z){
     cylinder(h=340, d=5);
     translate([entraxe_z,0,0]) cylinder(h=340, d=8);
   }
+  color("turquoise") translate([largeur/2-30-4,decal-15-pos_z,250]) rotate([180,0,-90]) x_end_idler();
+
+  color("turquoise") translate([-largeur/2+30+4,decal-15-pos_z,250]) rotate([180,0,-90])x_end_plain();
   
 }
 
 chassis_xz_equipe(largeur,hauteur);
-color("turquoise") translate([largeur/2-30-4,decal-15-pos_z,250]) rotate([180,0,-90]) x_end_idler();
-
-color("turquoise") translate([-largeur/2+30+4,decal-15-pos_z,250]) rotate([180,0,-90])x_end_plain();
