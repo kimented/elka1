@@ -3,7 +3,7 @@ use <modules.scad>;
 use <profile3030.scad>;
 use <spool_holder.scad>;
 use <prusa3-vanilla/x-end-idler.scad>
-use <prusa3-vanilla/x-end.scad>
+use <prusa3-vanilla/x-end-motor.scad>
 include <mcad/stepper.scad>;
 use <z_bar.scad>;
 use <z_motor.scad>;
@@ -39,9 +39,9 @@ module chassis_xz_equipe(x,z){
     cylinder(h=340, d=5);
     translate([entraxe_z,0,0]) cylinder(h=340, d=8);
   }
-  color("turquoise") translate([largeur/2-30-4,decal-15-pos_z,250]) rotate([180,0,-90]) x_end_idler();
+  color("turquoise") translate([largeur/2-30-6,decal-15-pos_z,250]) rotate([180,0,-90]) x_end_idler();
 
-  color("turquoise") translate([-largeur/2+30+4,decal-15-pos_z,250]) rotate([180,0,-90])x_end_plain();
+  color("turquoise") translate([-largeur/2+30+6,decal-15-pos_z,250]) rotate([180,0,-90])x_end_motor();
   
 }
 

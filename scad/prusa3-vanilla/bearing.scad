@@ -68,7 +68,7 @@ module vertical_bearing_base(){
 
 module vertical_bearing_holes(){
   translate(v=[0,0,-1]) poly_cylinder(h = 62, r=bearing_diameter/2);
-  rotate(a=[0,0,-70]) translate(v=[bearing_diameter/2-1,-0.5,-1]) cube(size = [thinwall*2,1,62]);
+  rotate(a=[0,0,70]) translate(v=[bearing_diameter/2-1,-0.5,-1]) cube(size = [thinwall*2,1,62]);
 
 }
 

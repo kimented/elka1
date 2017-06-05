@@ -33,7 +33,7 @@ decal_motory_y=25;
 // Fixations axe Z
 pos_z=26;
 hauteur_z=20;
-entraxe_z=17;
+entraxe_z=15;
 
 // Plats écrous
 ec3=5.7;
