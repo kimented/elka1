@@ -31,9 +31,12 @@ decal_motory_z=11;
 decal_motory_y=25;
 
 // Fixations axe Z
-pos_z=26;
-hauteur_z=20;
-entraxe_z=15;
+pos_z=26;      // position des axes par rapport au profilé (>= 21)
+hauteur_z=20;  // hauteur des fixations
+entraxe_z=17;  // distance entre les tiges Ø8 et M5
+// est ce que la tige de 8 dépasse du profilé de 30?
+// si oui, on décale les fixations
+decalx=max(-42/2+entraxe_z+8/2+2, 0);
 
 // Plats écrous
 ec3=5.7;

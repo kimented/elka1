@@ -23,26 +23,26 @@ module z_bar_l(){
       }
       translate([-1,-pos_z-1,-1.1]) cube([ep+2, 42/2+pos_z+2, ep+1]);
       // trou tige
-      translate([-42/2+ep+entraxe_z,0,-1]) cylinder(d=8.2, h=hauteur_z+2, $fn=24);
+      translate([-42/2+ep+entraxe_z-decalx,0,-1]) cylinder(d=8.2, h=hauteur_z+2, $fn=24);
     }
     // tige 8
     translate([entraxe_z,0,0]){
       difference(){
         union(){
           hull(){
-            cylinder(d=8+2*2, h=ep, $fn=24);
+            translate([-decalx,0,0]) cylinder(d=8+2*2, h=ep, $fn=24);
             translate([-(30-42/2)-entraxe_z,-pos_z,0]) cube([30,ep,ep]);
           }
-          cylinder(d=8+2*2, h=8, $fn=24);
-          translate([-5,0,0]) cube([8,8/2+8,ep+5],convexity=15);
+          translate([-decalx,0,0]) cylinder(d=8+2*2, h=8, $fn=24);
+          translate([-5-decalx,0,0]) cube([8,8/2+8,ep+5],convexity=15);
         }
         // trou tige
-        translate([0,0,-1]) cylinder(d=8.2, h=8+2, $fn=24);
+        translate([-decalx,0,-1]) cylinder(d=8.2, h=8+2, $fn=24);
         // rainure
-        translate([-1,-1,-1]) cube([2,8/2+8+2,ep+5+2]);
+        translate([-1-decalx,-1,-1]) cube([2,8/2+8+2,ep+5+2]);
         // vis
-        translate([-10,8,4]) rotate([0,90,0]) cylinder(h=20, d=vis3, $fn=12);
-        translate([-5+-1,8,4]) rotate([0,90,0]) ecrou(5.5, ec3h+1);
+        translate([-10-decalx,8,4]) rotate([0,90,0]) cylinder(h=20, d=vis3, $fn=12);
+        translate([-5+-1-decalx,8,4]) rotate([0,90,0]) ecrou(5.5, ec3h+1);
       }
     }
   }

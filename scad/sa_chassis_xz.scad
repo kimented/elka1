@@ -32,9 +32,9 @@ module chassis_xz_equipe(x,z){
   translate([50,decal,hauteur]) rotate([90,0,90]) spool_holder_sym(1);
   copy_mirror([1,0,0]) translate([x/2-30-15,-15+decal,z-10]) rotate([0,180,180]) z_bar_l();
   copy_mirror([1,0,0])
-  translate([-x/2+30+15,-15+decal,60])
+  translate([-x/2+30+15+decalx,-15+decal,60])
   rotate([0,0,180]) z_motor_l();  
-  copy_mirror([1,0,0]) translate([x/2-30-42/2,decal-pos_z-15,60]) {
+  copy_mirror([1,0,0]) translate([x/2-30-42/2-decalx,decal-pos_z-15,60]) {
     rotate([180,0,0]) color ("lightgrey") motor(Nema17);
     cylinder(h=340, d=5);
     translate([entraxe_z,0,0]) cylinder(h=340, d=8);
