@@ -1,3 +1,10 @@
+// eLKa1
+// belt_holder
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 // Pour courroie GT2
 include <config.scad>;
 use <modules.scad>;

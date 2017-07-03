@@ -1,3 +1,10 @@
+// eLKa1
+// profile3030
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 //Profilé 3030
 
 module profile3030(longueur, center){

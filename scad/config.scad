@@ -2,10 +2,11 @@
 
 decal=-30;            // décallage du chassis xz
 hauteur=400;          // hauteur totale chassis
-largeur=350;          // largeur totale chassis
-longueur=500;         // longueur totale chassis
+largeur=400;          // largeur totale chassis
+longueur=470;         // longueur totale chassis
 hauteur_base=90;      // hauteur de la base
 entraxe_y=140;        // distance entre les tiges Ø8 axe Y
+entraxe_x=45;         // distance entre les tiges Ø8 axe X
 
 couleur=[1,0.6,0];
 
@@ -30,6 +31,9 @@ decal_tiges=5;
 decal_motory_z=11;
 decal_motory_y=25;
 
+// Equerres de fixation position fermée
+eq_ec=10;      // écart entre profilés
+
 // Fixations axe Z
 pos_z=26;      // position des axes par rapport au profilé (>= 21)
 hauteur_z=20;  // hauteur des fixations
@@ -37,6 +41,16 @@ entraxe_z=17;  // distance entre les tiges Ø8 et M5
 // est ce que la tige de 8 dépasse du profilé de 30?
 // si oui, on décale les fixations
 decalx=max(-42/2+entraxe_z+8/2+2, 0);
+
+// Roulements linéaires
+lbd = 15; // diamètre ext
+lbh = 24; // hauteur
+
+// x_carriage
+he_x=23;  // entraxe hotend x
+he_y=23;  // entraxe hotend y
+sen_x=13; // entraxe capteur x
+sen_y=23; // entraxe capteur y
 
 // Plats écrous
 ec3=5.7;
@@ -61,3 +75,9 @@ vis6=6.5;
 
 // nombre de dents des poulies
 poulie=20;
+
+// Pas des courroies
+pas=2;
+
+// diamètre des poulies
+dpoulie=poulie*pas/3.1416;

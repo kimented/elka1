@@ -1,3 +1,10 @@
+// eLKa1
+// equerre4
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 include <config.scad>;
 module equerre4(){
   lar=25;   // largeur
@@ -6,7 +13,6 @@ module equerre4(){
   diam=5.5; // diamètre trou
   diam2=17; // diamètre lamage
   ep=5;     // épaisseur
-  ec=10;    // écart entre profilés
   lan=10;   // longueur de la languette
   pla=8.5;  // taille écrou sur plats
   pla2=4;   // ep écrou
@@ -22,7 +28,7 @@ module equerre4(){
     union(){
       rotate([90,0,0]) linear_extrude(lar, center=true) polygon([[tri,0],[0,tri],[0,0]]);
       translate([-mep,-lar/2,0]) cube([mep,lar,tri]);
-      translate([-mep-lan,-lar/2,0]) cube([lan,lar,ec]);
+      translate([-mep-lan,-lar/2,0]) cube([lan,lar,eq_ec]);
     }
     //vis de fixation
     translate([tet/2,0,-1]) cylinder(h=tri+2, d=diam, $fn=16);

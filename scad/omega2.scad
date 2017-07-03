@@ -1,3 +1,10 @@
+// eLKa1
+// omega2
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 ep=8;       // épaisseur
 diam=5.5;   // diamètre des trous
 pro=30;     // profilé

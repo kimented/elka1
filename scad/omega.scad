@@ -1,3 +1,10 @@
+// eLKa1
+// omega
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 include <config.scad>;
 
 ep=5;      // épaisseur

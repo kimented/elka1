@@ -1,3 +1,10 @@
+// eLKa1
+// equerre
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 include <config.scad>;
 use <modules.scad>;
 use <molette_m5.scad>;
@@ -9,7 +16,6 @@ module equerre3(assemblage){
   diam=vis5; // diamètre trou
   diam2=17; // diamètre lamage
   ep=5;     // épaisseur
-  ec=10;    // écart entre profilés
   lan=10;   // longueur de la languette
 
   vis=vis5;  // diamètre vis de serrage
@@ -27,7 +33,7 @@ module equerre3(assemblage){
     union(){
       rotate([90,0,0]) linear_extrude(lar, center=true) polygon([[tri,0],[0,tri],[0,0]]);
       translate([-mep,-lar/2,0]) cube([mep,lar,tri]);
-      translate([-mep-lan,-lar/2,0]) cube([lan,lar,ec]);
+      translate([-mep-lan,-lar/2,0]) cube([lan,lar,eq_ec]);
     }
     //vis de fixation
     translate([tet/2,0,-1]) cylinder(h=tri+2, d=diam, $fn=16);
@@ -40,14 +46,14 @@ module equerre3(assemblage){
     translate([tet/2+diam/2+3,-diam2/2,-1]) cube([tri,diam2,ep+2]);
     // écrou
     hull(){
-    translate([-mep+1.5,0,ec+pro/2]) rotate([0,90,0]) ecrou(ec5+jec,ec5h);
+    translate([-mep+1.5,0,eq_ec+pro/2]) rotate([0,90,0]) ecrou(ec5+jec,ec5h);
     translate([-mep+1.5,0,tri]) rotate([0,90,0]) ecrou(ec5+jec,ec5h);
     }
     // vis de serrage
-    translate([-mep-lan-1,0,ec+pro/2]) rotate([0,90,0]) cylinder(h=lan+mep+tri+2, d=vis5, $fn=16);
+    translate([-mep-lan-1,0,eq_ec+pro/2]) rotate([0,90,0]) cylinder(h=lan+mep+tri+2, d=vis5, $fn=16);
   }
   if(assemblage==1){
-   translate([mep+15,0,ec+30/2]) rotate([0,90,0])  molette_m5();
+   translate([mep+15,0,eq_ec+30/2]) rotate([0,90,0])  molette_m5();
   }
 
 }

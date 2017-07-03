@@ -1,3 +1,10 @@
+// eLKa1
+// cache
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 include <config.scad>;
 
 module cache(){

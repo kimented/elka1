@@ -1,3 +1,10 @@
+// eLKa1
+// y_belt_idler
+// GNU GPL v3
+// lkiefer <blog.lkiefer.org> and contributors
+// http://www.reprap.org/wiki/ELKa
+// https://github.com/kimented/elka1
+
 include <config.scad>;
 use <modules.scad>;
 
@@ -5,7 +12,7 @@ module y_belt_idler_1(){
   ep=4;
   hauteur=16; //14
   largeur=25; //20
-  ecart=15;
+  ecart=20;
   $fn=32;
   vis=vis4;
   ec=ec4;
@@ -32,12 +39,12 @@ module y_belt_idler_1(){
       translate([0,-ecart/2+1,hauteur]) rotate([90,0,0]) ecrou(ec,ech+1);
     }
 
-    difference(){
+    /*difference(){
       // Renfort
       copy_mirror([1,0,0]) translate([-largeur/2,-ecart/2]) cube([3,ecart,hauteur-2]);
       translate([0,0,hauteur]) rotate([90,0,0]) cylinder(d=largeur-1, h=ecart+2, center=true);
       
-    }
+    }*/
   }
 }
 
