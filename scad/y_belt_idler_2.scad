@@ -9,39 +9,45 @@ include <config.scad>;
 use <modules.scad>;
 
 module y_belt_idler_2(){
-  ep=4;
-  hauteur=11; //14
-  largeur=24; //20
-  ecart=14;
   $fn=32;
-  vis=vis4;
-  ec=ec4;
-  ech=ec4h;
+  echo ("y_belt_idler_2");
+  echo ("├ écrou M4");
+  echo (str("└ vis FS M4 x ", (ybi_ec+2*ybi_ep2)+4));
   
-  
-  long=60;
-  prof=15;
-    
-  color (couleur){
+  color (couleur) rotate([90,0,0]) {
     //cylinder(d=largeur, h=ecart);
     //translate([])
     difference(){
       union(){
-        cube([long,prof,hauteur+2*ep], center=true);
-        translate([-long/2+8,prof/2,0]) cylinder(d=10, h=hauteur+2*ep, center=true);
+        hull(){
+          translate([-ybi_long/2-10,-ybi_prof/2,-(ybi_ec+2*ybi_ep2)/2-0.5]) cube([1,ybi_prof,ybi_ec+2*ybi_ep2+1]);
+          translate([ybi_long/2,0,0]) cylinder(d=ybi_prof, h=ybi_ec+2*ybi_ep2, center=true);
+        }
+        // demi cylindre
+        translate([-ybi_long/2,ybi_prof/2-7,0]) 
+        intersection(){
+          cylinder(d=20, h=ybi_ec+2*ybi_ep2+1, center=true);
+          translate([-10,0,-ybi_ec/2-ybi_ep2-0.5]) cube([20,20,ybi_ec+2*ybi_ep2+1]);
+        }
+        
       }
       // trou roulement
-      hull(){
-        cylinder(h=hauteur, d=18, center=true);
-        translate([0,prof,0]) cylinder(h=hauteur, d=18, center=true);
+      difference(){
+        hull(){
+          cylinder(h=ybi_ec, d=18, center=true);
+          translate([0,ybi_prof,0]) cylinder(h=ybi_ec+1, d=18, center=true);
+        }
+        // Rondelle hauteur 0.5
+        copy_mirror([0,0,1]) translate([0,0,ybi_ec/2]) cylinder(h=0.5,d=vis4+2);
       }
-      cylinder(d=vis4, h=hauteur+2*ep+2, center=true);
+      cylinder(d=vis4, h=ybi_ec+2*ybi_ep2+2, center=true);
+      rotate([180,0,0]) translate([0,0,-ybi_ec/2-ybi_ep2-1.5]) cylinder(d1=vis4+8, d2=vis4, h=4);
       // axe
-      translate([long/2-6,0,0]) cylinder(d=vis4, h=hauteur+2*ep+2, center=true);
+      translate([ybi_long/2,0,0]) cylinder(d=vis4, h=ybi_ec+2*ybi_ep2+2, center=true);
       // serrage
       hull(){
-        rotate([90,0,0]) translate([-long/2+5,0,0]) cylinder(d=vis4, h=prof+10+2, center=true);
-        rotate([90,0,0]) translate([-long/2+11,0,0]) cylinder(d=vis4, h=prof+10+2, center=true);
+        rotate([90,0,0]) translate([-ybi_long/2+10-2.5-ybi_ep2,0,0]) cylinder(d=vis4, h=ybi_prof+10+2, center=true);
+        rotate([90,0,0]) translate([-ybi_long/2-10+2.5+ybi_ep2,0,0]) cylinder(d=vis4, h=ybi_prof+10+2, center=true);
       }
     }
     

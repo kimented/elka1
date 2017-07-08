@@ -15,6 +15,7 @@ include <mcad/stepper.scad>;
 use <z_axis_top.scad>;
 use <z_axis_bottom.scad>;
 use <x_carriage.scad>;
+use <sensor_holder.scad>;
 
 // Chassis XZ profilé 3030
 module chassis_xz(x,z){
@@ -41,7 +42,7 @@ module chassis_xz_equipe(x,z){
   copy_mirror([1,0,0]) translate([-x/2+30+15,+15+decal,z-10]) rotate([0,180,0]) z_axis_top_l();
   copy_mirror([1,0,0])
   translate([x/2-30-15-decalx,15+decal,60])
-  z_axis_bottom_l();
+  z_axis_bottom();
   copy_mirror([1,0,0]) translate([x/2-30-42/2-decalx,decal+pos_z+15,60]) {
     rotate([180,0,0]) color ("lightgrey") motor(Nema17);
     color ("lightgrey") cylinder(h=340, d=5);
@@ -54,6 +55,7 @@ module chassis_xz_equipe(x,z){
     color("turquoise") translate([largeur/2-30-6,decal+15+pos_z,0]) rotate([180,0,90]) x_end_motor();
     translate([89,decal+pos_z,-29]){
       translate([0,0,0]) rotate([90,0,0]) x_carriage();
+      translate([-he_x/2-sen_x,lbd/2+4,0]) rotate([90,0,180]) sensor_holder();
       translate([-220,0,-entraxe_x/2]) rotate([0,90,0]) color ("lightgrey") cylinder(h=265, d=8);
       translate([-220,0,+entraxe_x/2]) rotate([0,90,0]) color ("lightgrey") cylinder(h=265, d=8);
     }

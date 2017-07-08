@@ -17,7 +17,7 @@ module y_motor(){
   decalz=decal_motory_z-ep;
   profondeur=decaly+entraxe/2+5;
   $fn=32;
-  echo ("motor_y");
+  echo ("y_motor");
   
   color(couleur)
   translate([0,ep,-decalz])

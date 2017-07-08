@@ -43,7 +43,14 @@ module chassis_y(x,y,z,decalage){
 
 module chassis_y_equipe(largeur,longueur,hauteur_base,decal){
   chassis_y(largeur,longueur,hauteur_base,decal);
+  
+  // Fond MDF
+  echo (str("MDF 6mm ", longueur, "x", largeur, "mm"));
+  echo (str("VIS tête fraisée M8 x 15 X6"));
   color([0.2,0.2,0.2]) translate([-largeur/2,-longueur/2,-6]) cube([largeur,longueur,6]);
+  
+  // Tiges lisses
+  echo (str("Tige Ø8 L=", longueur-30*2, "mm X2"));
   copy_mirror([1,0,0]) color("lightgray") translate([-entraxe_y/2,0,hauteur_base-30/2+5]) rotate([90,0,0]) cylinder(d=8,h=longueur-30*2, center=true);
   
   
@@ -55,21 +62,23 @@ module chassis_y_equipe(largeur,longueur,hauteur_base,decal){
   copy_mirror([0,1,0]) copy_mirror([1,0,0]) translate([entraxe_y/2,longueur/2-30,hauteur_base-30/2]) rotate([90,0,0]) support_tige8_y();
   copy_mirror([0,1,0]) copy_mirror([1,0,0]) translate([entraxe_y/2,80,hauteur_base-30/2+decal_plateau+decal_tiges]) rotate([-90,0,0]) y_lm8uu();
   
+  // Plateau MDF
+  echo ("MDF 6mm 220x220mm");
   color ([0.2,0.2,0.2]) translate([-110,-110,hauteur_base-15+decal_tiges+decal_plateau]) cube([220,220,6]);
+  echo ("Plateau chauffant");
   color ([1,0.2,0.2]) translate([-110,-110,hauteur_base-15+decal_tiges+decal_plateau+6+10]) cube([220,220,2]);
   translate([poulie/3.1416,0,hauteur_base-30/2+decal_plateau+decal_tiges]) rotate([180,0,90]) y_belt_holder();
   
   // Moteur Y
   translate([0,-longueur/2+30,hauteur_base-30/2]) rotate([180,180,180]) y_motor();
   translate([0,-longueur/2+30+decal_motory_y,hauteur_base-30/2-decal_motory_z]) rotate([180,0,0]) color("lightgrey") motor(Nema17);
-  // Tendeur Y
-translate([0,-longueur/2+30,hauteur_base-30/2]) rotate([180,180,180]) y_motor();
+
   
   // Courroie Y
   translate([0,-longueur/2+30+decal_motory_y,hauteur_base-30/2-3]) rotate([0,0,90]) courroie(2*poulie/3.1416,longueur-90);
   // Tendeur Y
-  translate([-25,longueur/2-30,hauteur_base-30/2]) rotate([-90,0,180]) y_belt_idler_1();
-  translate([0,longueur/2-30-16,hauteur_base-30/2]) rotate([0,0,180]) y_belt_idler_2();
+  translate([-ybi_long/2,longueur/2-30,hauteur_base-30/2]) rotate([-90,0,180]) y_belt_idler_1();
+  translate([0,longueur/2-30-ybi_h,hauteur_base-30/2]) rotate([-90,0,180]) y_belt_idler_2();
   
 }
 

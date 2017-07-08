@@ -24,7 +24,7 @@ module equerre3(assemblage){
   
   echo ("equerre3");
   // Liste vitamines
-  echo ("├ écrou m5");
+  echo ("├ écrou M5");
   echo ("└ vis H M5 x 25");
   
   color (couleur)

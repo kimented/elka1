@@ -8,7 +8,8 @@
 include <config.scad>;
 use <modules.scad>;
 
-module z_axis_bottom_l(){
+module z_axis_bottom(){
+  echo ("z_axis_bottom");
   ep=3;
   color(couleur)
   translate([-42/2+30/2,pos_z,0]){
@@ -72,9 +73,9 @@ module z_axis_bottom_l(){
   }
 }
 
-module z_axis_bottom_r(){
+/*module z_axis_bottom_r(){
   mirror([1,0,0]) z_axis_bottom_l();
-}
+}*/
 
-z_axis_bottom_l();
-translate([-55,0,0]) z_axis_bottom_r();
+z_axis_bottom();
+translate([-55,0,0]) mirror([1,0,0]) z_axis_bottom();
